@@ -6,6 +6,7 @@ from memoization import fib as memoization
 from dynamic import fib as dynamic
 from matrix_exponentiation import fib as matrix
 from binet import fib as binet
+from iterative_space_optimized import fib as iterative
 
 def trial(f, n):
     start = t.time()
@@ -27,4 +28,5 @@ interval2 = [501, 631, 794, 1000, 1259, 1585, 1995, 2512, 3162, 3981, 5012, 6310
 # test(memoization, interval2)
 # test(dynamic, interval2)
 # test(matrix, interval2)
-test(binet, interval2[:10])
+# test(binet, interval2[:10])
+# test(iterative, interval2)
