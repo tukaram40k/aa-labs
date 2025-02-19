@@ -1,5 +1,7 @@
-import math
+from decimal import Decimal, getcontext
 
 def fib(n):
-    phi = (1 + math.sqrt(5)) / 2
-    return round(math.pow(phi, n) / math.sqrt(5))
+    getcontext().prec = 5000
+    phi = (1 + 5 ** .5) / 2
+    psi = (1 - 5 ** .5) / 2
+    return (Decimal(phi) ** Decimal(n) - Decimal(psi) ** Decimal(n)) / Decimal(5 ** .5)
