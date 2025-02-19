@@ -1,6 +1,5 @@
 import time as t
 import matplotlib.pyplot as plt
-import prettytable as pt
 
 def fib(n):
     if n <= 0:
