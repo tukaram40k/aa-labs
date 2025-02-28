@@ -1,0 +1,25 @@
+.container {
+    font-family: system-ui, -apple-system, sans-serif;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.bars-container {
+    height: 300px;
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    padding: 20px;
+    background: #f3f4f6;
+    border-radius: 8px;
+}
+
+.bar {
+    flex: 1;
+    background: #2563eb;
+    transition: height 0.2s ease;
+}

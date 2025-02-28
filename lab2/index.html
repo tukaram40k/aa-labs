@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <title>Hello world!</title>
+</head>
+<body>
+    <main class="main-container">
+        <h3 id="test">text</h3>
+        <button id="button">click me</button>
+        <div class="container">
+            <div class="controls">
+                <button onclick="newArr()">New Array</button>
+                <select id="algorithm" onchange="setAlg()">
+                    <option value="quick">Quick Sort</option>
+                    <option value="merge">Merge Sort</option>
+                    <option value="heap">Heap Sort</option>
+                </select>
+                <button onclick="sort()">Sort</button>
+            </div>
+            <div class="bars-container" id="bars"></div>
+        </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
