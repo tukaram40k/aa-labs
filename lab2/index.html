@@ -4,21 +4,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
-    <title>Hello world!</title>
+    <title>Sorting Visualizer</title>
 </head>
 <body>
-    <div class="container">
-        <div class="controls">
-            <button onclick="newArr(len, min, max)">New Array</button>
-            <select id="algorithm" onchange="setAlg()">
-                <option value="quick">Quick Sort</option>
-                <option value="merge">Merge Sort</option>
-                <option value="heap">Heap Sort</option>
-            </select>
-            <button onclick="sort()">Sort</button>
-        </div>
-        <div class="bars-container" id="bars"></div>
+<div class="container">
+    <div class="controls">
+        <button onclick="newArr()">New Array</button>
+        <select id="algorithm" onchange="setAlg()">
+            <option value="quick">Quick Sort</option>
+            <option value="merge">Merge Sort</option>
+            <option value="heap">Heap Sort</option>
+            <option value="bubble">Bubble Sort</option>
+        </select>
+        <button onclick="sort()">Sort</button>
     </div>
-    <script src="main.js"></script>
+    <div class="settings">
+        <label>Length: <input type="number" id="length" value="500"></label>
+        <label>Min: <input type="number" id="min" value="-100"></label>
+        <label>Max: <input type="number" id="max" value="100"></label>
+        <label>Timeout (ms): <input type="number" id="timeout" value="50"></label>
+    </div>
+    <div class="bars-container" id="bars"></div>
+</div>
+<script src="main.js"></script>
 </body>
 </html>

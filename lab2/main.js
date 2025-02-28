@@ -1,18 +1,20 @@
-let arr = []
-let alg = 'quick'
-let sorting = false
-let timeout = 200;
-let len = 200
-let min = -100
-let max = 100
+let arr = [];
+let alg = 'quick';
+let timeout = 0;
+let len = 0;
+let min = 0;
+let max = 0;
 
 function genArr(len, min, max) {
-    return Array.from({length: len}, () => {
-        return Math.random() * (max - min) + min;
-    });
+    return Array.from({ length: len }, () => Math.random() * (max - min) + min);
 }
 
-function newArr(len=10, min=-10, max=10) {
+function newArr() {
+    len = parseInt(document.getElementById('length').value);
+    min = parseInt(document.getElementById('min').value);
+    max = parseInt(document.getElementById('max').value);
+    timeout = parseInt(document.getElementById('timeout').value);
+
     arr = genArr(len, min, max);
     update();
 }
@@ -26,6 +28,7 @@ function update() {
         const bar = document.createElement('div');
         bar.className = 'bar';
         bar.style.height = `${(value / maxVal) * 100}%`;
+        bar.style.width = `calc(100% / ${arr.length} + 5px)`; // Spread evenly
         container.appendChild(bar);
     });
 }
@@ -34,26 +37,19 @@ function sleep(time) {
     return new Promise(resolve => setTimeout(resolve, time));
 }
 
-function setAlg(){
+function setAlg() {
     alg = document.getElementById('algorithm').value;
 }
 
-async function sort(){
-    document.querySelectorAll('button, select').forEach(el => el.disabled = true)
-    sorting = true
-
+async function sort() {
     switch (alg) {
-        case 'quick': await quickSort(arr, 0, arr.length - 1);
-        break;
-        case 'merge': await mergeSort(arr, 0, arr.length - 1);
-        break;
-        case 'heap': await heapSort(arr);
-        break;
+        case 'quick': await quickSort(arr, 0, arr.length - 1); break;
+        case 'merge': await mergeSort(arr, 0, arr.length - 1); break;
+        case 'heap': await heapSort(arr); break;
+        case 'bubble': await bubblesort(arr); break;
     }
 
     update();
-    sorting = false
-    document.querySelectorAll('button, select').forEach(el => el.disabled = false)
 }
 
 async function partition(arr, low, high) {
@@ -97,7 +93,6 @@ async function merge(arr, left, mid, right) {
     const L = new Array(n1);
     const R = new Array(n2);
 
-    await sleep(timeout);
     update();
 
     // Copy data to temp arrays L[] and R[]
@@ -121,7 +116,7 @@ async function merge(arr, left, mid, right) {
         k++;
     }
 
-    await sleep(timeout);
+    await sleep(timeout/100);
     update();
 
     // Copy the remaining elements of L[], if there are any
@@ -148,7 +143,6 @@ async function mergeSort(arr, left, right) {
     await mergeSort(arr, mid + 1, right);
     await merge(arr, left, mid, right);
 
-    await sleep(timeout);
     update();
 }
 
@@ -182,20 +176,17 @@ async function heapify(arr, n, i) {
         arr[i] = arr[largest];
         arr[largest] = temp;
 
-        await sleep(timeout);
+        await sleep(timeout/100);
         update();
 
         // Recursively heapify the affected sub-tree
-        heapify(arr, n, largest);
+        await heapify(arr, n, largest);
     }
 }
 
 // Main function to do heap sort
 async function heapSort(arr) {
     let n = arr.length;
-
-    await sleep(timeout);
-    update();
 
     // Build heap (rearrange array)
     for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
@@ -213,7 +204,21 @@ async function heapSort(arr) {
         // Call max heapify on the reduced heap
         await heapify(arr, i, 0);
     }
-
-    await sleep(timeout);
     update();
 }
+
+async function bubblesort(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < (arr.length - i - 1); j++) {
+            if (arr[j] > arr[j + 1]) {
+                let temp = arr[j]
+                arr[j] = arr[j + 1]
+                arr[j + 1] = temp
+            }
+            update();
+            await sleep(timeout/100);
+        }
+    }
+}
+
+newArr();
