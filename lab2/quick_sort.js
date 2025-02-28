@@ -16,16 +16,10 @@ function partition(arr, low, high) {
     return i + 1; // Return the partition index
 }
 
-function quickSort(arr, low, high) {
+export function quickSort(arr, low, high) {
     if (low >= high) return;
     let pi = partition(arr, low, high);
 
     quickSort(arr, low, pi - 1);
     quickSort(arr, pi + 1, high);
 }
-
-let arr = [10, 80, 30, 90, 40, -6545654165.345, -8588];
-console.log("Original array: " + arr);
-
-quickSort(arr, 0, arr.length - 1);
-console.log("Sorted array: " + arr);

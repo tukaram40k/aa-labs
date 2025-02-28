@@ -33,7 +33,7 @@ function heapify(arr, n, i) {
 }
 
 // Main function to do heap sort
-function heapSort(arr) {
+export function heapSort(arr) {
     let n = arr.length;
 
     // Build heap (rearrange array)
@@ -53,17 +53,3 @@ function heapSort(arr) {
         heapify(arr, i, 0);
     }
 }
-
-// A utility function to print array of size n
-function printArray(arr) {
-    for (let i = 0; i < arr.length; i++) {
-        console.log(arr[i] + " ");
-    }
-    console.log();
-}
-
-// Driver's code
-let arr = [9, 4, 3, 8, 10, 2, -54548854445, 0];
-heapSort(arr);
-console.log("Sorted array is ");
-printArray(arr);

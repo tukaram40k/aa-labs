@@ -42,7 +42,7 @@ function merge(arr, left, mid, right) {
     }
 }
 
-function mergeSort(arr, left, right) {
+export function mergeSort(arr, left, right) {
     if (left >= right)
         return;
 
@@ -51,17 +51,3 @@ function mergeSort(arr, left, right) {
     mergeSort(arr, mid + 1, right);
     merge(arr, left, mid, right);
 }
-
-function printArray(arr) {
-    console.log(arr.join(" "));
-}
-
-// Driver code
-const arr = [12, 11, 13, 5, 6, 7, -5425434533, -115, 0];
-console.log("Given array is");
-printArray(arr);
-
-mergeSort(arr, 0, arr.length - 1);
-
-console.log("\nSorted array is");
-printArray(arr);
