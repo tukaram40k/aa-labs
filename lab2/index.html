@@ -7,22 +7,18 @@
     <title>Hello world!</title>
 </head>
 <body>
-    <main class="main-container">
-        <h3 id="test">text</h3>
-        <button id="button">click me</button>
-        <div class="container">
-            <div class="controls">
-                <button onclick="newArr()">New Array</button>
-                <select id="algorithm" onchange="setAlg()">
-                    <option value="quick">Quick Sort</option>
-                    <option value="merge">Merge Sort</option>
-                    <option value="heap">Heap Sort</option>
-                </select>
-                <button onclick="sort()">Sort</button>
-            </div>
-            <div class="bars-container" id="bars"></div>
+    <div class="container">
+        <div class="controls">
+            <button onclick="newArr(len, min, max)">New Array</button>
+            <select id="algorithm" onchange="setAlg()">
+                <option value="quick">Quick Sort</option>
+                <option value="merge">Merge Sort</option>
+                <option value="heap">Heap Sort</option>
+            </select>
+            <button onclick="sort()">Sort</button>
         </div>
-    </main>
+        <div class="bars-container" id="bars"></div>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
