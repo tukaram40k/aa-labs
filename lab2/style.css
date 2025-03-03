@@ -1,6 +1,6 @@
 .container {
     font-family: system-ui, -apple-system, sans-serif;
-    max-width: 1200px;
+    max-width: 95vw;
     margin: 20px auto;
     padding: 20px;
     background: white;
@@ -42,5 +42,5 @@
     background: #be3ffb;
     transition: height 0.2s ease;
     flex-grow: 1;  /* Allows bars to expand evenly */
-    margin: 0 0.001vw; /* Adds spacing between bars */
+    margin: 0 0.03vw; /* Adds spacing between bars */
 }

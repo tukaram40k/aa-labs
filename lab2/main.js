@@ -46,7 +46,7 @@ async function sort() {
         case 'quick': await quickSort(arr, 0, arr.length - 1); break;
         case 'merge': await mergeSort(arr, 0, arr.length - 1); break;
         case 'heap': await heapSort(arr); break;
-        case 'bubble': await bubblesort(arr); break;
+        case 'Stalin': await stalinSort(arr); break;
     }
 
     update();
@@ -116,7 +116,7 @@ async function merge(arr, left, mid, right) {
         k++;
     }
 
-    await sleep(timeout/100);
+    await sleep(timeout);
     update();
 
     // Copy the remaining elements of L[], if there are any
@@ -146,9 +146,6 @@ async function mergeSort(arr, left, right) {
     update();
 }
 
-
-// To heapify a subtree rooted with node i
-// which is an index in arr[].
 async function heapify(arr, n, i) {
 
     // Initialize largest as root
@@ -176,7 +173,7 @@ async function heapify(arr, n, i) {
         arr[i] = arr[largest];
         arr[largest] = temp;
 
-        await sleep(timeout/100);
+        await sleep(timeout);
         update();
 
         // Recursively heapify the affected sub-tree
@@ -184,7 +181,6 @@ async function heapify(arr, n, i) {
     }
 }
 
-// Main function to do heap sort
 async function heapSort(arr) {
     let n = arr.length;
 
@@ -207,18 +203,21 @@ async function heapSort(arr) {
     update();
 }
 
-async function bubblesort(arr) {
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < (arr.length - i - 1); j++) {
-            if (arr[j] > arr[j + 1]) {
-                let temp = arr[j]
-                arr[j] = arr[j + 1]
-                arr[j + 1] = temp
-            }
-            update();
-            await sleep(timeout/100);
+async function stalinSort(arr) {
+    if (arr.length === 0) return;
+    let index = 0;
+
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] >= arr[index]) {
+            index++;
+            arr[index] = arr[i];
         }
+        update();
+        await sleep(timeout);
     }
+
+    arr.length = index + 1;
+    update();
 }
 
 newArr();
