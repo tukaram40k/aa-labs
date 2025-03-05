@@ -20,7 +20,7 @@ function randArr(size, min, max) {
 }
 
 // nearly sorted
-function nearArr(size, min, max, disorder=0.1) {
+function nearArr(size, min, max, disorder=0.01) {
     const arr = Arr(size, min, max);
 
     const shuffleCount = Math.floor(size * disorder);
