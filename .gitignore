@@ -1,2 +1,3 @@
 /.idea
-lab1/__pycache__
+__pycache__/
+lab2/plots
