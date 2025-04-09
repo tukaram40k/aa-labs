@@ -77,8 +77,8 @@ async function quickSort(arr, low, high) {
     await sleep(timeout);
     update();
 
-    quickSort(arr, low, pi - 1);
-    quickSort(arr, pi + 1, high);
+    await quickSort(arr, low, pi - 1);
+    await quickSort(arr, pi + 1, high);
 }
 
 async function merge(arr, left, mid, right) {
