@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dijkstra's Algorithm Visualization with D3.js</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Dijkstra's Algorithm Visualization</h1>
+        
+        <div class="controls">
+            <button id="start-btn">Start Algorithm</button>
+            <button id="reset-btn">Reset</button>
+            <button id="new-graph-btn">New Random Graph</button>
+            <select id="speed">
+                <option value="1000">Slow</option>
+                <option value="500" selected>Medium</option>
+                <option value="200">Fast</option>
+                <option value="50">Very Fast</option>
+            </select>
+            <select id="node-count">
+                <option value="10">10 Nodes</option>
+                <option value="20" selected>20 Nodes</option>
+                <option value="30">30 Nodes</option>
+                <option value="40">40 Nodes</option>
+            </select>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #3498db;"></div>
+                <span>Unvisited Node</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #e74c3c;"></div>
+                <span>Current Node</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #2ecc71;"></div>
+                <span>Visited Node</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #f39c12;"></div>
+                <span>Shortest Path</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #34495e;"></div>
+                <span>Edge Being Considered</span>
+            </div>
+        </div>
+        
+        <div id="graph-container"></div>
+        
+        <div class="status" id="status">Ready to start</div>
+        
+        <div class="info-panel">
+            <h3>How Dijkstra's Algorithm Works:</h3>
+            <p>Dijkstra's algorithm finds the shortest path between nodes in a graph. It works as follows:</p>
+            <ol>
+                <li>Initialize distances from source to all vertices as infinity and distance to source as 0.</li>
+                <li>Create a set of unvisited nodes.</li>
+                <li>While the set is not empty:
+                    <ul>
+                        <li>Pick the unvisited node with the minimum distance value.</li>
+                        <li>Mark the picked node as visited.</li>
+                        <li>Update the distance value of adjacent nodes: If the distance to a node through the current node is less than its previous value, update the distance.</li>
+                    </ul>
+                </li>
+            </ol>
+            <p>The algorithm guarantees the shortest path to all nodes from the starting node.</p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
